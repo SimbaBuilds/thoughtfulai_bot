@@ -2,7 +2,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, configure your environment variables:
+
+NEXT_PUBLIC_DEFAULT_PROVIDER=openai "openai" or "anthropic"
+NEXT_PUBLIC_DEFAULT_MODEL=gpt-4o
+
+# API Keys
+
+OPENAI_API_KEY= your-openai-api-key
+
+ANTHROPIC_API_KEY= your-anthropic-api-key
+To run the development server:
 
 ```bash
 npm run dev
