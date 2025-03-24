@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import { sendChatMessage } from '../lib/services/endpoints/chat';
+'use client';
 
-interface ChatMessage {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
-  type: 'text' | 'image';
-}
+import { useState } from 'react';
+import { sendChatMessage } from '../lib/services/chat';
+import { Message } from '../lib/types/agent_types';
 
 export function useChat() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +16,7 @@ export function useChat() {
     setInput('');
     setIsLoading(true);
 
-    const newUserMessage: ChatMessage = {
+    const newUserMessage: Message = {
       role: 'user',
       content: userMessage,
       type: 'text'
@@ -28,7 +25,7 @@ export function useChat() {
     setMessages(updatedMessages);
 
     try {
-      console.log('[Chat] Sending request to API');
+      console.log('[Chat] Sending request to agent');
       const data = await sendChatMessage(updatedMessages);
       setMessages(messages => [...messages, { 
         role: 'assistant',
