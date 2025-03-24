@@ -68,7 +68,7 @@ export default function Chat() {
                 <div className={`text-xs mt-2 ${
                   message.role === 'user' ? 'text-slate-100' : 'text-gray-500 dark:text-gray-400'
                 }`}>
-                  {message.role === 'user' ? 'You' : 'Thoughtful AI Support'}
+                  {message.role === 'assistant' ? 'Thoughtful AI Support' : ''}
                 </div>
               </div>
             </div>
